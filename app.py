@@ -30,8 +30,7 @@ migrate = Migrate(app, db)
 #----------------------------------------------------------------------------#
 
 class Venue(db.Model):
-    __tablename__ = 'Venue'
-
+    __tablename__ = 'venues'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     city = db.Column(db.String(120), nullable=False)
@@ -48,8 +47,7 @@ class Venue(db.Model):
     seeking_description = db.Column(db.String)
 
 class Artist(db.Model):
-    __tablename__ = 'Artist'
-
+    __tablename__ = 'artists'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     city = db.Column(db.String(120), nullable=False)
@@ -65,7 +63,11 @@ class Artist(db.Model):
     seeking_description = db.Column(db.String)
 
 # TODO Implement Show and Artist models, and complete all model relationships and properties, as a database migration.
-
+shows = db.Table('shows',
+    db.Column('artist_id', db.Integer, db.ForeignKey('artists.id')),
+    db.Column('venue_id', db.Integer, db.ForeignKey('venues.id')),
+    db.Column('start_time', db.DateTime)
+)
 #----------------------------------------------------------------------------#
 # Filters.
 #----------------------------------------------------------------------------#
