@@ -117,6 +117,21 @@
   <script>window.jQuery || document.write('<script type="text/javascript" src="/static/js/libs/jquery-1.11.1.min.js"><\/script>')</script>
   <script type="text/javascript" src="/static/js/libs/bootstrap-3.1.1.min.js" defer></script>
   <script type="text/javascript" src="/static/js/plugins.js" defer></script>
+  <script>
+    delete_venue = document.getElementById('delete-venue')
+    if (delete_venue) {
+        delete_venue.addEventListener('click', (e) => {
+          e.preventDefault()
+          fetch(delete_venue.getAttribute('href'), {
+            method: 'DELETE',
+          })
+          .then(() => {
+            console.log('succes')
+            window.location.href = '/'
+          })
+        })
+    }
+  </script>
 
 </body>
 </html>

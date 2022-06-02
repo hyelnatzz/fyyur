@@ -8,5 +8,6 @@
 [Ss]cripts
 pyvenv.cfg
 .venv
+venv
 __pycache__
 pip-selfcheck.json

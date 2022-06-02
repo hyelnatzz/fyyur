@@ -33,9 +33,6 @@ def upgrade():
     op.alter_column('Artist', 'phone',
                existing_type=sa.VARCHAR(length=120),
                nullable=False)
-    op.alter_column('Artist', 'genres',
-               existing_type=sa.VARCHAR(length=120),
-               nullable=False)
     # ### end Alembic commands ###
 
 
